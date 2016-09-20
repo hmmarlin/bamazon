@@ -1,0 +1,12 @@
+id,product_name,dept_name,price,quantity
+1,umbrella,"sporting goods",15,60
+2,"sleeping bag","sporting goods",80,20
+3,frisbee,"sporting goods",18,95
+4,"you don't know JS",books,6,50
+5,"Harry Potter",books,17,105
+6,scissors,office,8,92
+7,lightbublbs,home,17,30
+8,"toilet paper",home,10,300
+9,"AAA batteries",office,15,45
+10,shakespeare,books,39,27
+11,headlamp,"sporting goods",15,80
