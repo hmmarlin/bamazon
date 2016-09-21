@@ -92,6 +92,8 @@ var askCustomer = function() {
                                     startShopping();
                                 } else {
                                     console.log("Come back again soon!");
+                                    process.exit();
+
                                 }
                             })
                         });
