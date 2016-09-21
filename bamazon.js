@@ -1,5 +1,6 @@
 var mysql = require('mysql');
 var inquirer = require('inquirer');
+var AsciiTable = require('ascii-table');
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -13,7 +14,13 @@ var numUnits;
 
 connection.connect(function(err) {
     if (err) throw err;
-    console.log("WELCOME TO BAMAZON!")
+    console.log()
+    var welcomeTable = new AsciiTable()
+    welcomeTable.setBorder('*')
+        .setHeading('Welcome')
+        .addRow('TO BAMAZON!')
+
+    console.log(welcomeTable.toString())
     startShopping();
     // console.log("connected as id " + connection.threadId);
 })
@@ -21,11 +28,12 @@ connection.connect(function(err) {
 var startShopping = function() {
     connection.query('SELECT * FROM products', function(err, res) {
         if (err) throw err;
-        console.log('ID | ' + '  Product | ' + ' Price ($) ')
-
+        var table = new AsciiTable('BAMAZON STOREFRONT')
+        table.setHeading('ID', 'Product', 'Price')
         for (var i = 0; i < res.length; i++) {
-            console.log(res[i].id + ' | ' + res[i].product_name + ' | ' + res[i].price + '| ' + res[i].quantity);
+            table.addRow(res[i].id, res[i].product_name, '$' + res[i].price);
         }
+        console.log(table.toString())
         askCustomer();
     })
 }
@@ -74,7 +82,7 @@ var askCustomer = function() {
                         }, {
                             id: chosenItem
                         }], function(err, res) {
-                        	console.log("Succesfully added! The price was $" + chosenPrice);
+                            console.log("Succesfully added! The price was $" + chosenPrice);
                             inquirer.prompt({
                                 name: "again",
                                 type: "confirm",
@@ -96,5 +104,3 @@ var askCustomer = function() {
         })
     })
 }
-
-console.log(toBuy);
