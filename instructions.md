@@ -16,3 +16,8 @@ CREATE TABLE products (
 );
 ```
 ### Import the file products.csv to your table
+
+### Video of my working app:
+```
+https://youtu.be/CHexSBOHui0
+```
