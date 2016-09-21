@@ -1,6 +1,7 @@
 #Week of 12 HW: Node.js & MySQL
 
-### Copy & Paste the below into MySQL Workbench:
+### Create your database in MySQL Workbench
+Copy & paste the below code into MySQL workbench.
 ```
 CREATE DATABASE bamazon;
 
@@ -14,3 +15,4 @@ CREATE TABLE products (
     PRIMARY KEY (id)
 );
 ```
+### Import the file products.csv to your table
